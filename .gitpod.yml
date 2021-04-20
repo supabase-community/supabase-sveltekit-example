@@ -16,7 +16,20 @@ tasks:
         export WSS_HOST=`gp url 24678 | sed 's#https://##g'` &&
         sed -i "s#JSON.stringify(host)#JSON.stringify(\"$WSS_HOST\")#g" *
       )
-      npm run dev
+      (
+        RED='\033[0;31m'
+        BOLD='\033[1;30m'
+        NC='\033[0m' # No Color
+
+        gp env | grep --quiet VITE_SUPABASE_URL
+        if [ $? -eq 1 ]
+        then
+          printf "${RED}Missing environment variables for supabase.${NC}\n\n"
+          printf "To configure them:\n\n1. run: ${BOLD}gp env -e VITE_SUPABASE_URL=your_supabase_url VITE_SUPABASE_ANON_KEY=your_supabase_anon_key${NC}\n2. close and re-open your workspace\n"
+        else
+          npm run dev
+        fi
+      )
 
 github:
   prebuilds:
