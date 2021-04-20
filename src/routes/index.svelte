@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-  import { user } from '$lib/db'
+  import { user, auth } from '$lib/db'
 
   export let products
 </script>
@@ -21,11 +21,10 @@
 
   {#if $user}
     <p>You are signed in as {$user.email}</p>
-    <button on:click={() => db.supabase.auth.signOut()}>Sign out</button>
+    <button on:click={() => auth.signOut()}>Sign out</button>
   {:else}
     <nav>
       <a href="/sign-in">Sign in</a>
     </nav>
   {/if}
-
 </main>

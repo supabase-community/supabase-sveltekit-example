@@ -14,6 +14,8 @@ export const user = readable(supabase.auth.user(), set => {
   })
 })
 
+export const auth = supabase.auth
+
 // TODO: add your queries/inserts/updates/deletes here
 export const products = {
   async all() {
