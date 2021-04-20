@@ -16,7 +16,8 @@ npm run dev -- --open
 ## GitPod
 
 Visit https://gitpod.io/#https://github.com/joshnuss/supabase-sveltekit-example
-You'll need to set up your supabase keys in the `.env` file.
+
+NOTE: You'll need to set up your supabase keys in the `.env` file.
 
 ## Building
 
