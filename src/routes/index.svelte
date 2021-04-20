@@ -1,11 +1,22 @@
+<script lang="ts" context="module">
+  import * as db from '$lib/db'
+
+  export async function load() {
+    const products = await db.products.all()
+
+    return {
+      props: { products }
+    }
+  }
+</script>
+
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+  export let products
 </script>
 
 <main>
+  {products.length}
 	<h1>Hello world!</h1>
-
-	<Counter />
 
 	<p>Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
 </main>
