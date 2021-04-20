@@ -18,7 +18,7 @@ module.exports = {
 
 		vite: {
 			ssr: {
-				noExternal: Object.keys(pkg.dependencies || {})
+				noExternal: Object.keys(pkg.dependencies || {}).concat(['supabase-ui-svelte'])
 			}
 		}
 	}
