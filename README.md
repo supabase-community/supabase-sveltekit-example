@@ -2,6 +2,10 @@
 
 A [svelte-kit](https://kit.svelte.dev) project, with [supabase](https://supabase.io) and [gitpod](https://gitpod.io) configured.
 
+## GitPod
+
+Open with GitPod: https://gitpod.io/#https://github.com/joshnuss/supabase-sveltekit-example
+
 ## Developing
 
 Once you've installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
@@ -12,12 +16,6 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
-
-## GitPod
-
-Visit https://gitpod.io/#https://github.com/joshnuss/supabase-sveltekit-example
-
-NOTE: You'll need to set up your supabase keys in the `.env` file.
 
 ## Building
 
