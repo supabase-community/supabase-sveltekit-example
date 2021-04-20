@@ -25,7 +25,7 @@ tasks:
         if [ $? -eq 1 ]
         then
           printf "${RED}Missing environment variables for supabase.${NC}\n\n"
-          printf "To configure them:\n\n1. run: ${BOLD}gp env -e VITE_SUPABASE_URL=your_supabase_url VITE_SUPABASE_ANON_KEY=your_supabase_anon_key${NC}\n2. close and re-open your workspace\n"
+          printf "To configure them:\n\n1. run: ${BOLD}gp env -e VITE_SUPABASE_URL=your_supabase_url VITE_SUPABASE_ANON_KEY=your_supabase_anon_key${NC}\n2. stop and re-start your workspace\n"
         else
           npm run dev
         fi
