@@ -6,7 +6,7 @@
 <div class="container">
   <h1>Sign in</h1>
 
-  <Auth supabaseClient={supabase}/>
+  <Auth supabaseClient={supabase} providers={['google', 'twitter']}/>
 </div>
 
 <style>
