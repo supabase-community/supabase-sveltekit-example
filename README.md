@@ -6,6 +6,17 @@ A [svelte-kit](https://kit.svelte.dev) project, with [supabase](https://supabase
 
 Open with GitPod: https://gitpod.io/#https://github.com/joshnuss/supabase-sveltekit-example
 
+## Running locally
+
+Set up your database settings in the `.env` file:
+
+```bash
+# copy example file
+cp .env.example .env
+```
+
+The settings can be found in your [supabase](https://app.supabase.io) account, in the Settings / API page.
+
 ## Developing
 
 Once you've installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
