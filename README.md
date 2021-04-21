@@ -8,14 +8,14 @@ Open with GitPod: https://gitpod.io/#https://github.com/joshnuss/supabase-svelte
 
 ## Running locally
 
-Set up your database settings in the `.env` file:
+Configure the database settings in the `.env` file:
 
 ```bash
-# copy example file
+# copy example template
 cp .env.example .env
 ```
 
-The settings can be found in your [supabase](https://app.supabase.io) account, in the Settings / API page.
+The values can be found in your [supabase](https://app.supabase.io) account, in the Settings / API page.
 
 ## Developing
 
