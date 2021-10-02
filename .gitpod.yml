@@ -2,15 +2,34 @@
 # Learn more about this Gitpod configuration file in the documentation at https://www.gitpod.io/docs/configuration
 #
 ports:
-  - port: 3000
-    onOpen: open-preview
+  - port: 24678
+    onOpen: ignore
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks
 tasks:
   - init: npm install
     command: |
-      export HMR_HOST=`gp url 3000`
-      npm run dev
+      echo "Applying a temporary HMR workaround until https://github.com/vitejs/vite/pull/1992 is fixed."
+      (
+        cd ./node_modules/vite/dist/node/chunks/ &&
+        sed -i 's/JSON.stringify(port)/JSON.stringify(443)/g' * &&
+        export WSS_HOST=`gp url 24678 | sed 's#https://##g'` &&
+        sed -i "s#JSON.stringify(host)#JSON.stringify(\"$WSS_HOST\")#g" *
+      )
+      (
+        RED='\033[0;31m'
+        BOLD='\033[1;30m'
+        NC='\033[0m' # No Color
+
+        gp env | grep --quiet VITE_SUPABASE_URL
+        if [ $? -eq 1 ]
+        then
+          printf "${RED}Missing environment variables for supabase.${NC}\n\n"
+          printf "To configure them:\n\n1. run: ${BOLD}gp env -e VITE_SUPABASE_URL=your_supabase_url VITE_SUPABASE_ANON_KEY=your_supabase_anon_key${NC}\n2. stop and re-start your workspace\n"
+        else
+          npm run dev
+        fi
+      )
 
 github:
   prebuilds:
